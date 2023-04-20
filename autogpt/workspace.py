@@ -3,12 +3,9 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
-from autogpt.config import Config
-
-CFG = Config()
-
 # Set a dedicated folder for file I/O
-WORKSPACE_PATH = Path(os.getcwd()) / "auto_gpt_workspace"
+#WORKSPACE_PATH = Path(os.getcwd()) / "auto_gpt_workspace"
+WORKSPACE_PATH = Path(os.getcwd()) / "Users\matt-\Documents\GitHub\Auto-GPT\auto_gpt_workspace"
 
 # Create the directory if it doesn't exist
 if not os.path.exists(WORKSPACE_PATH):
@@ -37,12 +34,9 @@ def safe_path_join(base: Path, *paths: str | Path) -> Path:
     Returns:
         Path: The joined path
     """
-    base = base.resolve()
     joined_path = base.joinpath(*paths).resolve()
 
-    if CFG.restrict_to_workspace and not joined_path.is_relative_to(base):
-        raise ValueError(
-            f"Attempted to access path '{joined_path}' outside of workspace '{base}'."
-        )
+    if not joined_path.is_relative_to(base):
+        raise ValueError(f"Attempted to access path '{joined_path}' outside of working directory '{base}'.")
 
     return joined_path
