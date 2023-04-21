@@ -1,0 +1,9 @@
+Website Structure:
+- Home
+- BetBot
+- Sports
+  - NBA
+  - MLB
+  - NHL
+  - Soccer
+  - Tennis

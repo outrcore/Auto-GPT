@@ -28,6 +28,10 @@ def get_prompt() -> str:
 
     # Add constraints to the PromptGenerator object
     prompt_generator.add_constraint(
+        "Track your current tasks in tasks.txt."
+        "Refer back, and update tasks.txt as you complete the current task and come up with new tasks."
+    )
+    prompt_generator.add_constraint(
         "~4000 word limit for short term memory. Your short term memory is short, so"
         " immediately save important information to files."
     )
@@ -41,6 +45,10 @@ def get_prompt() -> str:
     )
     prompt_generator.add_constraint(
         "Use subprocesses for commands that will not terminate within a few minutes"
+    )
+    prompt_generator.add_constraint(
+        "Command should never be empty."
+        "Refrain from executing the command with arguments that have been previously used for the same command"
     )
 
     # Define the command list

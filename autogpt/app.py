@@ -213,8 +213,11 @@ def execute_command(command_name: str, arguments):
             return generate_image(arguments["prompt"])
         elif command_name == "send_tweet":
             return send_tweet(arguments["text"])
-        elif command_name == "do_nothing":
-            return "No action performed."
+        #elif command_name == "do_nothing":
+        #    return (
+        #             "You are not allowed to do nothing. You must take an action."
+        #             "Review the tasks you've been given and choose an action that suits the task at hand"
+        #        )
         elif command_name == "task_complete":
             shutdown()
         else:
